@@ -1,14 +1,22 @@
 // src/router/index.js
 import { createRouter, createWebHashHistory } from 'vue-router';
 import Login from '../page/Login.vue';
+import Index from '../page/Index.vue';
 
 // createRouter 创建路由实例
 const router = createRouter({
   history: createWebHashHistory(), // hash模式：createWebHashHistory，history模式：createWebHistory
   routes: [
     {
-      path: '/',
+      path: '/login',
       component: Login,
+    },
+    {
+      path: '/index',
+      component: Index,
+      children: [
+        { path: '/', redirect: 'index' }, // 这里写跳转
+      ],
     },
   ],
 });
