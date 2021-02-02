@@ -8,7 +8,7 @@
     @click-right="showPopup"
   />
   <div class="condition">
-    <van-collapse v-model="activeNames" is-link="false">
+    <van-collapse v-model="activeNames" is-link=false>
       <van-collapse-item title="选择楼栋" name="1">
         <van-checkbox-group v-model="checked" direction="horizontal">
           <van-checkbox name="a">复选框 a</van-checkbox>
@@ -22,8 +22,8 @@
     round
     position="right"
     :style="{
-      height: '80%',
-      width: '80%',
+      height: '98%',
+      width: '60%',
       padding: '10px 0 5px 10px',
     }"
   >
@@ -61,7 +61,7 @@
   </van-popup>
 </template>
 
-<script>
+<script lang="ts">
   import { Toast } from 'vant';
   import { ref } from 'vue';
   export default {

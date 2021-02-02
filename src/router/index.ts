@@ -1,7 +1,7 @@
 // src/router/index.js
 import { createRouter, createWebHashHistory } from 'vue-router';
-import Login from '../page/Login.vue';
-import Index from '../page/Index.vue';
+import Login from '../views/Login.vue';
+import Index from '../views/Index.vue';
 
 // createRouter 创建路由实例
 const router = createRouter({

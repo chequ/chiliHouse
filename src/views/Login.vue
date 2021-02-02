@@ -29,33 +29,36 @@
   </van-form>
 </template>
 
-<script>
-  import { reactive } from 'vue';
-  import { Toast } from 'vant';
+<script lang="ts">
+import router from '../router/index';
+import { reactive } from 'vue';
+import { Toast } from 'vant';
 
-  export default {
-    setup() {
-      const onClickLeft = () => Toast('返回');
-      const state = reactive({
-        username: '',
-        password: '',
-      });
-      const onSubmit = (values) => {
-        console.log('submit', values);
-        this.$router.push({ path: '/' });
-      };
+export default {
+  setup() {
+    const onClickLeft = () => Toast('返回');
+    const state = reactive({
+      username: '',
+      password: '',
+    });
+    const onSubmit = (values: any) => {
+      console.log('submit', values);
+      router.push('/');
+    };
 
-      return {
-        onClickLeft,
-        state,
-        onSubmit,
-      };
-    },
-  };
+    return {
+      onClickLeft,
+      state,
+      onSubmit,
+    };
+  },
+};
 </script>
 
-<style scoped>
-  .submit_btn_box {
-    margin: 16px;
-  }
+<style lang="scss" scoped>
+$color: #f00;
+.submit_btn_box {
+  margin: 16px;
+  color: $color;
+}
 </style>
