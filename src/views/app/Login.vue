@@ -30,7 +30,7 @@
 </template>
 
 <script lang="ts">
-import router from '../router/index';
+import router from '../../router/index';
 import { reactive } from 'vue';
 import { Toast } from 'vant';
 
@@ -56,9 +56,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$color: #f00;
+
 .submit_btn_box {
   margin: 16px;
-  color: $color;
 }
 </style>
