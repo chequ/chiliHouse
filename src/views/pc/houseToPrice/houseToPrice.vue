@@ -101,61 +101,233 @@
         </el-form-item>
       </el-form>
     </div>
-    <div>
-      <el-table :data="tableData" style="width: 100%">
-        <el-table-column prop="date" label="日期" width="180">
+    <div class="content-table">
+      <el-table :data="tableData" border style="width: 100%; height: 100%">
+        <el-table-column
+          v-for="(col, index) in tableColumn"
+          :key="index"
+          :prop="col.prop"
+          :label="col.label"
+          :width="col.width"
+        >
         </el-table-column>
-        <el-table-column prop="name" label="姓名" width="180">
-        </el-table-column>
-        <el-table-column prop="address" label="地址"> </el-table-column>
       </el-table>
     </div>
   </div>
 </template>
 
 <script>
-export default {
-  data () {
-    return {
-      formInline: {
-        value1: true,
-        user: '',
-        region: '',
-        tableData: [{
-          date: '2016-05-02',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1518 弄'
-        }, {
-          date: '2016-05-04',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1517 弄'
-        }, {
-          date: '2016-05-01',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1519 弄'
-        }, {
-          date: '2016-05-03',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1516 弄'
-        }]
-      }
-    }
-  },
-  methods: {
-    onSubmit () {
-      console.log('submit!');
-    }
-  }
-}
+  export default {
+    data() {
+      return {
+        formInline: {
+          value1: true,
+          user: '',
+          region: '',
+        },
+        tableColumn: [
+          {
+            prop: 'building',
+            label: '楼栋',
+            width: '120',
+          },
+          {
+            prop: 'houseNo',
+            label: '房号',
+            width: '120',
+          },
+          {
+            prop: 'area',
+            label: '建筑面积',
+            width: '120',
+          },
+          {
+            prop: 'houseType',
+            label: '户型',
+            width: '180',
+          },
+          {
+            prop: 'houseCode',
+            label: '户型编码',
+            width: '120',
+          },
+          {
+            prop: 'houseChar',
+            label: '房屋类型',
+            width: '120',
+          },
+          {
+            prop: 'noDecorationPrice',
+            label: '清水挂牌价',
+            width: '120',
+          },
+          {
+            prop: 'decorationPrice',
+            label: '装修均价',
+            width: '120',
+          },
+          {
+            prop: 'houseTotalPrice',
+            label: '房屋总价',
+            width: '120',
+          },
+          {
+            prop: 'averagePrice',
+            label: '总均价',
+            width: '120',
+          },
+          {
+            prop: 'direction',
+            label: '朝向',
+            width: '120',
+          },
+          {
+            prop: 'sunshine',
+            label: '大寒·日照',
+            width: '',
+          },
+        ],
+        tableData: [
+          {
+            building: '5',
+            houseNo: '2801',
+            area: 102.25,
+            houseType: '2室2厅l卫3阳台',
+            houseCode: 'G',
+            houseChar: '住宅',
+            noDecorationPrice: '1478842',
+            decorationPrice: '2659',
+            houseTotalPrice: '1750725',
+            averagePrice: '17122',
+            direction: '南',
+            sunshine: '7-8小时',
+          },
+          {
+            building: '5',
+            houseNo: '2801',
+            area: 102.25,
+            houseType: '2室2厅l卫3阳台',
+            houseCode: 'G',
+            houseChar: '住宅',
+            noDecorationPrice: '1478842',
+            decorationPrice: '2659',
+            houseTotalPrice: '1750725',
+            averagePrice: '17122',
+            direction: '南',
+            sunshine: '7-8小时',
+          },
+          {
+            building: '5',
+            houseNo: '2801',
+            area: 102.25,
+            houseType: '2室2厅l卫3阳台',
+            houseCode: 'G',
+            houseChar: '住宅',
+            noDecorationPrice: '1478842',
+            decorationPrice: '2659',
+            houseTotalPrice: '1750725',
+            averagePrice: '17122',
+            direction: '南',
+            sunshine: '7-8小时',
+          },
+          {
+            building: '5',
+            houseNo: '2801',
+            area: 102.25,
+            houseType: '2室2厅l卫3阳台',
+            houseCode: 'G',
+            houseChar: '住宅',
+            noDecorationPrice: '1478842',
+            decorationPrice: '2659',
+            houseTotalPrice: '1750725',
+            averagePrice: '17122',
+            direction: '南',
+            sunshine: '7-8小时',
+          },
+          {
+            building: '5',
+            houseNo: '2801',
+            area: 102.25,
+            houseType: '2室2厅l卫3阳台',
+            houseCode: 'G',
+            houseChar: '住宅',
+            noDecorationPrice: '1478842',
+            decorationPrice: '2659',
+            houseTotalPrice: '1750725',
+            averagePrice: '17122',
+            direction: '南',
+            sunshine: '7-8小时',
+          },
+          {
+            building: '5',
+            houseNo: '2801',
+            area: 102.25,
+            houseType: '2室2厅l卫3阳台',
+            houseCode: 'G',
+            houseChar: '住宅',
+            noDecorationPrice: '1478842',
+            decorationPrice: '2659',
+            houseTotalPrice: '1750725',
+            averagePrice: '17122',
+            direction: '南',
+            sunshine: '7-8小时',
+          },
+          {
+            building: '5',
+            houseNo: '2801',
+            area: 102.25,
+            houseType: '2室2厅l卫3阳台',
+            houseCode: 'G',
+            houseChar: '住宅',
+            noDecorationPrice: '1478842',
+            decorationPrice: '2659',
+            houseTotalPrice: '1750725',
+            averagePrice: '17122',
+            direction: '南',
+            sunshine: '7-8小时',
+          },
+          {
+            building: '5',
+            houseNo: '2801',
+            area: 102.25,
+            houseType: '2室2厅l卫3阳台',
+            houseCode: 'G',
+            houseChar: '住宅',
+            noDecorationPrice: '1478842',
+            decorationPrice: '2659',
+            houseTotalPrice: '1750725',
+            averagePrice: '17122',
+            direction: '南',
+            sunshine: '7-8小时',
+          },
+        ],
+      };
+    },
+    methods: {
+      onSubmit() {
+        console.log('submit!');
+      },
+    },
+  };
 </script>
 
 <style lang="scss" scoped>
-.content_box {
-  height: 100%;
-  background: #ffffff;
-  .conditon_box {
-    height: 120px;
-    padding: 10px;
+  .content_box {
+    height: 100%;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    .conditon_box {
+      border: 1px solid #ddd;
+      border-bottom: none;
+      height: 120px;
+      padding: 10px;
+      overflow-y: auto;
+    }
+    .content-table {
+      flex: 1;
+      border: 1px solid #ddd;
+      padding: 5px;
+    }
   }
-}
 </style>

@@ -29,74 +29,78 @@
 </template>
 
 <script lang="ts">
-import router from '../../router/index';
-import { reactive, ref } from 'vue';
-export default {
-  data() {
-    return {
-      loginForm: {
-        name: '',
-        password: '',
-      },
-      rules: {
-        name: [{ required: true, message: '请输入账号', trigger: 'blur' }],
-        password: [{ required: true, message: '请输入密码', trigger: 'blur' }],
-      },
-    };
-  },
-  setup() {
-    // const loginForm = reactive({
-    //   name: '',
-    //   password: '',
-    // });
-    // const rules = reactive({
-    //   name: [{ required: true, message: '请输入账号', trigger: 'blur' }],
-    //   password: [{ required: true, message: '请输入密码', trigger: 'blur' }],
-    // });
-    // return {
-    //   loginForm,
-    //   rules,
-    // };
-  },
-  methods: {
-    submitForm(formName: string) {
-      this.$refs[formName].validate((valid: boolean) => {
-        if (valid) {
-          router.push('/houseToPrice');
-        } else {
-          console.log('error submit!!');
-          return false;
-        }
-      });
+  import router from '../../router/index';
+  import { reactive, ref } from 'vue';
+  export default {
+    data() {
+      return {
+        loginForm: {
+          name: '',
+          password: '',
+        },
+        rules: {
+          name: [{ required: true, message: '请输入账号', trigger: 'blur' }],
+          password: [
+            { required: true, message: '请输入密码', trigger: 'blur' },
+          ],
+        },
+      };
     },
-  },
-};
+    setup() {
+      // const loginForm = reactive({
+      //   name: '',
+      //   password: '',
+      // });
+      // const rules = reactive({
+      //   name: [{ required: true, message: '请输入账号', trigger: 'blur' }],
+      //   password: [{ required: true, message: '请输入密码', trigger: 'blur' }],
+      // });
+      // return {
+      //   loginForm,
+      //   rules,
+      // };
+    },
+    methods: {
+      submitForm(formName: string) {
+        this.$refs[formName].validate((valid: boolean) => {
+          if (valid) {
+            router.push('/houseToPrice');
+          } else {
+            console.log('error submit!!');
+            return false;
+          }
+        });
+      },
+    },
+  };
 </script>
 
 <style lang="scss" scoped>
-.login_box {
-  height: 100%;
-  width: 100%;
-  background-repeat: no-repeat;
-  background-position: center 110px;
-  background-size: 100%;
-  background-image: url('../../assets/images/pc/bg.svg');
-  position: relative;
-  .login_dialog {
-    left: 50%;
-    top: 20%;
-    height: 300px;
-    width: 400px;
-    position: absolute;
-    transform: translate(-50%);
-    .login_title {
-      padding: 30px 0;
-      font-size: 24px;
-      font-weight: 600;
-    }
-    .login_btn {
-      width: 100%;
+  .login_box {
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center 110px;
+    background-size: 100%;
+    background-image: url('../../assets/images/pc/bg.svg');
+    position: relative;
+    .login_dialog {
+      left: 50%;
+      top: 20%;
+      height: 300px;
+      width: 400px;
+      position: absolute;
+      transform: translate(-50%);
+      .login_title {
+        padding: 30px 0;
+        padding-left: 40px;
+        font-size: 26px;
+        font-weight: 600;
+        text-align: center;
+      }
+      .login_btn {
+        width: 100%;
+      }
     }
   }
-}
 </style>
