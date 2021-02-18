@@ -13,6 +13,7 @@ const pcRouter = createRouter({
     {
       path: '/',
       component: pcIndex,
+      
       children: [
         { path: '/houseToPrice', component: houseToPrice },
       ],
