@@ -2,9 +2,9 @@
   "name": "malaxuanfang",
   "version": "0.0.1",
   "scripts": {
-    "dev": "NODE_ENV=development && vite",
-    "build-dev": "NODE_ENV=development && vite build",
-    "build-prd": "NODE_ENV=production && vite build"
+    "dev": "cross-env NODE_ENV=development vite",
+    "build-dev": "cross-env NODE_ENV=development vite build",
+    "build-prd": "cross-env NODE_ENV=production vite build"
   },
   "dependencies": {
     "axios": "^0.21.1",

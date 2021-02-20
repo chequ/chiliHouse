@@ -63,14 +63,14 @@ export default {
     submitForm(formName: string) {
       this.$refs[formName].validate((valid: boolean) => {
         if (valid) {
-          login({ name: 'lin' })
+          login(this.loginForm)
             .then((res) => {
               console.log(res);
+              router.push('/houseToPrice');
             })
             .catch((err) => {
               console.log(err);
             });
-          // router.push('/houseToPrice');
         } else {
           console.log('error submit!!');
           return false;

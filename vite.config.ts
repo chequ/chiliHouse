@@ -12,6 +12,7 @@ for (const file of envFiles) {
     process.env[k] = envConfig[k];
   }
 }
+console.log(process.env.VITE_BASE_URL)
 module.exports = {
   base: process.env.VITE_BASE_URL,
   outDir: process.env.VITE_OUTPUT_DIR,

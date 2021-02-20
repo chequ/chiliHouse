@@ -4,6 +4,11 @@
       <div class="logo_box">
         <img src="../../assets/images/common/logo.png" alt="" />
       </div>
+      <div class="user_center">
+        <div class="login_out">
+          <img src="../../assets/images/common/loginOut.png" alt="">
+        </div>
+      </div>
     </el-header>
     <el-container>
       <el-aside width="200px" class="menu_box">
@@ -32,52 +37,67 @@
 </template>
 
 <script>
-  export default {
-    methods: {
-      handleOpen(key, keyPath) {
-        console.log(key, keyPath);
-      },
-      handleClose(key, keyPath) {
-        console.log(key, keyPath);
-      },
+export default {
+  methods: {
+    handleOpen (key, keyPath) {
+      console.log(key, keyPath);
     },
-  };
+    handleClose (key, keyPath) {
+      console.log(key, keyPath);
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-  #app .el-container {
-    height: 100%;
-    width: 100%;
-    .el-header {
-      // background-color: #79d1d8;
-      background: url('../../assets/images/pc/headerBg.png') no-repeat;
-      background-size: 100% 100%;
-      color: #ffffff;
-      text-align: left;
-      height: 60px;
-      .logo_box img {
+#app .el-container {
+  height: 100%;
+  width: 100%;
+  .el-header {
+    // background-color: #79d1d8;
+    background: url('../../assets/images/pc/headerBg.png') no-repeat;
+    background-size: 100% 100%;
+    color: #ffffff;
+    text-align: left;
+    height: 60px;
+    display: flex;
+    .logo_box {
+      width: 50%;
+      img {
         margin-top: 5px;
         height: 50px;
         width: 50px;
         border-radius: 10px;
       }
     }
-
-    .el-aside {
-      // background-color: #5ad4d1;
-      background: url('../../assets/images/pc/leftBg.png') no-repeat;
-      background-size: 100%;
-      color: #ffffff;
-      text-align: center;
-      .menu_box {
-        padding: 10px;
+    .user_center {
+      width: 50%;
+      text-align: right;
+      height: 100%;
+      line-height: 60px;
+      .login_out{
+        display: inline-block;
+        height: 32px;
+        width: 32px;
       }
     }
+  }
 
-    .el-main {
-      background-color: #e9eef3;
-      color: #333;
+  .el-aside {
+    // background-color: #5ad4d1;
+    background: url('../../assets/images/pc/leftBg.png') no-repeat;
+    background-size: 100%;
+    color: #ffffff;
+    text-align: center;
+    .menu_box {
       padding: 10px;
     }
   }
+
+  .el-main {
+    background-color: #e9eef3;
+    color: #333;
+    padding: 10px;
+  }
+}
 </style>
