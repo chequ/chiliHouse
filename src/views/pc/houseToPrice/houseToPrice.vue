@@ -102,7 +102,7 @@
       </el-form>
     </div>
     <div class="content-table">
-      <el-table :data="tableData" border style="width: 100%; height: 100%">
+      <el-table :data="tableData" border style="width: 100%;">
         <el-table-column
           v-for="(col, index) in tableColumn"
           :key="index"
@@ -299,7 +299,7 @@
             averagePrice: '17122',
             direction: '南',
             sunshine: '7-8小时',
-          },
+          }
         ],
       };
     },
@@ -328,6 +328,7 @@
       flex: 1;
       border: 1px solid #ddd;
       padding: 5px;
+      overflow-y: auto;
     }
   }
 </style>

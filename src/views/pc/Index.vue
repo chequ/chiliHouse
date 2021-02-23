@@ -5,9 +5,9 @@
         <img src="../../assets/images/common/logo.png" alt="" />
       </div>
       <div class="user_center">
-        <div class="login_out">
-          <img src="../../assets/images/common/loginOut.png" alt="">
-        </div>
+        <span class="login_out" @Click="loginOut">
+          <img src="../../assets/images/common/loginOut.png" alt="" />
+        </span>
       </div>
     </el-header>
     <el-container>
@@ -34,10 +34,30 @@
       </el-main>
     </el-container>
   </el-container>
+  <el-dialog
+    title="提示"
+    v-model="loginOutVisible"
+    width="30%"
+  >
+    <span>确认是要退出么？</span>
+    <template #footer>
+      <span class="dialog-footer">
+        <el-button @click="loginOutVisible = false">取 消</el-button>
+        <el-button type="primary" @click="loginOutConfirm"
+          >确 定</el-button
+        >
+      </span>
+    </template>
+  </el-dialog>
 </template>
 
 <script>
 export default {
+  data () {
+    return {
+      loginOutVisible: false
+    }
+  },
   methods: {
     handleOpen (key, keyPath) {
       console.log(key, keyPath);
@@ -45,21 +65,25 @@ export default {
     handleClose (key, keyPath) {
       console.log(key, keyPath);
     },
+    loginOut () {
+      this.loginOutVisible = true
+    },
+    loginOutConfirm () {
+      this.loginOutVisible = false
+      this.$router.push('/login')
+    },
   },
 };
 </script>
 
 <style lang="scss" scoped>
 #app .el-container {
-  height: 100%;
-  width: 100%;
   .el-header {
     // background-color: #79d1d8;
     background: url('../../assets/images/pc/headerBg.png') no-repeat;
     background-size: 100% 100%;
     color: #ffffff;
     text-align: left;
-    height: 60px;
     display: flex;
     .logo_box {
       width: 50%;
@@ -74,11 +98,12 @@ export default {
       width: 50%;
       text-align: right;
       height: 100%;
-      line-height: 60px;
-      .login_out{
+      .login_out {
+        margin-top: 14px;
         display: inline-block;
         height: 32px;
         width: 32px;
+        cursor: pointer;
       }
     }
   }

@@ -13,7 +13,7 @@
           <el-input v-model="loginForm.name"></el-input>
         </el-form-item>
         <el-form-item label="密码" prop="password">
-          <el-input v-model="loginForm.password"></el-input>
+          <el-input v-model="loginForm.password" type="password"></el-input>
         </el-form-item>
         <el-form-item>
           <el-button
@@ -66,7 +66,9 @@ export default {
           login(this.loginForm)
             .then((res) => {
               console.log(res);
-              router.push('/houseToPrice');
+              if(res.code === 200){
+                router.push('/houseToPrice');
+              }
             })
             .catch((err) => {
               console.log(err);
